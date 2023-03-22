@@ -26,6 +26,7 @@ export const useUser = () => {
     e.preventDefault();
     console.log({newUser})
     dispatch(sinUp(newUser,navigate))
+    
   }
   return { loginUser, setLoginUser, handelSumbit,handelRegister, setNewUser,newUser };
 };

@@ -1,6 +1,6 @@
 import { GET_ALL_CARS, SEARCH_CAR, GET_CAR_By_ID } from "../constante";
 import { Url_get_all_cars, Url_search_cars, Url_get_car_ById } from "../../Api";
-import {getCarFromApi, getAllCarsFromApi} from "../../Service/services"
+import {getCarFromApi, getFromApi} from "../../Service/services"
 
 
 //get all the cars
@@ -8,7 +8,7 @@ export const getAllCars = () => async (dispatch) => {
   try {
     const {
       data: { cars },
-    } = await getAllCarsFromApi(Url_get_all_cars);
+    } = await getFromApi(Url_get_all_cars);
     dispatch({ type: GET_ALL_CARS, payload: cars });
   } catch (e) {
     console.log(e);
@@ -39,7 +39,7 @@ export const getCar = (id) => async (dispatch) => {
   try {
     const {
       data: { car },
-    } = await getCarFromApi(`${Url_get_car_ById}/${id}`);
+    } = await getFromApi(`${Url_get_car_ById}/${id}`);
     dispatch({ type: GET_CAR_By_ID, payload: car });
   } catch (e) {
     console.log(e);

@@ -24,7 +24,7 @@ export const logIn = (userInfo, navigate)=>async (dispatch)=>{
     const { token, user } = res.data;
       dispatch({ type: REGISTER_USER, payload: { token, user } });
       if (user.isAgency) {
-        navigate("/agency");
+        navigate(`/agency/${user._id}`);
       } else {
         navigate("/account");
       }

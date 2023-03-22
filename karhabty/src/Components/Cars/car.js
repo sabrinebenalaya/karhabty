@@ -8,7 +8,7 @@ function Car({ car }) {
 
   const navigate = useNavigate();
   const handelShowDeatil = () => {
-   console.log(car._id)
+   
    navigate (`/detailCar/${car._id}`)
     
   };

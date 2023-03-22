@@ -34,5 +34,25 @@ const deleteUser = async (req, res)=>{
 const getUser = async (req, res)=>{
   
 }
-  module.exports = { addUser, updateUser, deleteUser, getUser}
+
+const getOneAgency = async (req, res) => {
+  const id = req.params.id;
+ 
+  try {
+    const Agency = await Person.findById(id);
+    
+
+    if (!Agency) {
+      res.status(402).json({ msg: "Agency not found" });
+    } else {
+      res.status(200).json({ Agency });
+    }
+  
+
+  } catch (error) {
+    res.status(500).json({ msg: "Operation of getOneAgency is failed" });
+  }
+};
+
+  module.exports = { addUser, updateUser, deleteUser, getUser, getOneAgency}
 

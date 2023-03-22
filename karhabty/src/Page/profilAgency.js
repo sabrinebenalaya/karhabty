@@ -1,6 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux';
+import { Link, useParams } from 'react-router-dom'
+import { getAgency } from '../Redux/Actions/actionAgency';
 function ProfilAgency() {
+
+  const { id } = useParams();
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAgency(id));
+  });
+
   return (
     <section style={{backgroundColor: "#eee"}}> 
     <div class="container py-5">

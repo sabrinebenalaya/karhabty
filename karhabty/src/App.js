@@ -47,7 +47,7 @@ function App() {
         { path: "/account/order", element: <DetailOrder /> },
       ],
     },
-    { path: "/agency", element: <ProfilAgency /> },
+    { path: "/agency/:id", element: <ProfilAgency /> },
   ];
   const router = createBrowserRouter(routes);
   return (
