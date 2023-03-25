@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { getAgency } from "../Redux/Actions/actionAgency";
+import {logOut} from "../Redux/Actions/actionAuth"
 import CustomButton from "../Atom/Button";
 import CustomModal from "../Atom/Modal";
 function ProfilAgency() {
   const { id } = useParams();
-
+const navigate =useNavigate()
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAgency(id));
@@ -19,6 +20,10 @@ function ProfilAgency() {
   const handleShowPhone = () => setShowPhone(true);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const logout =()=>{
+    dispatch(logOut(navigate))
+      
+  }
   return (
     <section style={{ backgroundColor: "#eee" }}>
       <div class="container py-5">
@@ -31,12 +36,13 @@ function ProfilAgency() {
                 </li>
 
                 <li class="breadcrumb-item active" aria-current="page">
-                  User Profile
+                <Link to={`/agency/${oneAgency._id}`}>{oneAgency.agencyName}</Link>
                 </li>
               </ol>
               <Link
                 to="/"
                 style={{ float: "right", marginTop: "-25px", color: "red" }}
+                onClick={logout}
               >
                 Log out
               </Link>
@@ -156,6 +162,7 @@ function ProfilAgency() {
                       titleSave="Save"
                       show={showPhone}
                       handleClose={handleClosePhone}
+                      id={oneAgency._id}
                     />
                   </div>
                 </div>
@@ -195,6 +202,7 @@ function ProfilAgency() {
                       titleSave="Save"
                       show={show}
                       handleClose={handleClose}
+                      id={oneAgency._id}
                     />
                   </div>
                 </div>

@@ -1,5 +1,5 @@
-import { REGISTER_USER, LOGIN_USER } from "../constante";
-import { Url_SingUp, Url_login } from "../../Api";
+import { REGISTER_USER, LOGIN_USER, LOGOUT_USER } from "../constante";
+import { Url_SingUp, Url_login, Url_logOut } from "../../Api";
 import axios from "axios";
 export const logIn = (userInfo, navigate)=>async (dispatch)=>{
     try {
@@ -15,7 +15,19 @@ export const logIn = (userInfo, navigate)=>async (dispatch)=>{
       console.log(e);
     }
   }
-
+  export const logOut = (navigate)=>async (dispatch)=>{
+    try {
+    const res = await axios.get(Url_logOut);
+    const { token } = res.data;
+    token ="";
+      dispatch({ type: LOGOUT_USER, payload: { token } });
+ 
+        navigate("/");
+     
+    } catch (e) {
+      console.log(e);
+    }
+  }
   export const sinUp = (userInfo, navigate)=>async (dispatch)=>{
     try {
       console.log({userInfo})

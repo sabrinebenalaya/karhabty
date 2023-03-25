@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const regitser = async (req, res) => {
   const user = req.body;
-
   try {
     const foundUser = await User.findOne({ mail: user.mail });
     if (foundUser) {
@@ -50,8 +49,15 @@ const login = async (req, res) => {
     res.status(500).json({ errors: [{ msg: "server failed" }] });
   }
 };
-
+const logOut = async (req, res) => {
+ 
+  try {
+    res.redirect('/'); 
+  } catch (error) {
+    res.status(500).json({ errors: [{ msg: "server failed" }] });
+  }
+};
 module.exports = {
   regitser,
-  login,
+  login,logOut
 };
