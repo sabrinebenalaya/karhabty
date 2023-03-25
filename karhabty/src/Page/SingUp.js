@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { switchStyle } from "../Style/style";
 import Form from "react-bootstrap/Form";
 import CustomInput from "../Atom/Input";
 import CustomButton from "../Atom/Button";
 
-import { uuid } from "uuidv4";
 import { useUser } from "../Hooks/useUser";
 import { imgSingUp, style1 } from "../Style/loginSingupStyle";
 function SingUp() {
@@ -55,7 +54,16 @@ function SingUp() {
                       </div>
                     </div>
                   </div>
-
+                
+                  <div class="form-outline mb-4">
+                  <CustomInput
+                    titelFieald="Agency Name"
+                    type="text"
+                    placeholder="Agency Name"
+                    name="agencyName"
+                    handleChange={handelCH}
+                  />
+                </div>
                   <div class="form-outline mb-4">
                     <CustomInput
                       titelFieald="Email address"
@@ -65,7 +73,7 @@ function SingUp() {
                       handleChange={handelCH}
                     />
                   </div>
-
+                  
                   <div class="form-outline mb-4">
                     <CustomInput
                       titelFieald="Password"

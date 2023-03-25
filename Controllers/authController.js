@@ -4,17 +4,18 @@ const bcrypt = require("bcryptjs");
 const regitser = async (req, res) => {
   const user = req.body;
 
- 
   try {
     const foundUser = await User.findOne({ mail: user.mail });
     if (foundUser) {
-        res.status(400).json({ msg: "user already exist you sould login" });
+      res.status(400).json({ msg: "user already exist you sould login" });
     } else if (!foundUser) {
-        const hashedPaswword = await bcrypt.hash(user.password, 10);
+      const hashedPaswword = await bcrypt.hash(user.password, 10);
       let newUser = new User({
         firstName: user.firstName,
         lastName: user.lastName,
+        agencyName: user.agencyName,
         mail: user.mail,
+        phone: user.phone,
         password: hashedPaswword,
         isAgency: user.isAgency,
       });
@@ -23,6 +24,7 @@ const regitser = async (req, res) => {
       res.status(200).json({ user: newUser, token: token });
     }
   } catch (error) {
+    console.log(error);
     res.status(500).json({ msg: "Operation of regitser is failed" });
   }
 };

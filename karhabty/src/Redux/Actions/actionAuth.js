@@ -23,12 +23,14 @@ export const logIn = (userInfo, navigate)=>async (dispatch)=>{
     console.log({res})
     const { token, user } = res.data;
       dispatch({ type: REGISTER_USER, payload: { token, user } });
+     
       if (user.isAgency) {
         navigate(`/agency/${user._id}`);
       } else {
         navigate("/account");
       }
     } catch (e) {
+     
       console.log(e);
     }
   }
