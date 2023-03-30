@@ -1,7 +1,6 @@
 export const btn_div_navbar = {
-
   display: "flex",
-  flexDirection : "row",
+  flexDirection: "row",
   justifyContent: "space-between",
 };
 export const navbarHome = {
@@ -13,18 +12,18 @@ export const navbarHome = {
   height: "600px",
   padding: "2%",
   display: "flex",
-  justifyContent:"space-between"
+  justifyContent: "space-between",
 };
-export const btn ={
-  color:"red",
+export const btn = {
+  color: "red",
   fontWeight: "bold",
-  fontSize:"18px",
-  width:"100px",
-  height:"30px",
-  padding:"5px",
-  backgroundColor:"transparent",
-  border:"transparent"
-}
+  fontSize: "18px",
+  width: "100px",
+  height: "30px",
+  padding: "5px",
+  backgroundColor: "transparent",
+  border: "transparent",
+};
 export const listCarCard = {
   display: "flex",
   flexWrap: "wrap",
@@ -42,21 +41,17 @@ export const searchForm = {
   padding: "20px",
   width: "100%",
   margin: "2%",
-  borderRadius : "10px"
+  borderRadius: "10px",
 };
-export const inputStyle ={
-  borderRadius : "10px"
-}
-/////buton
-export const buttonStyle ={
-  backgroundColor:"bleu",
-  padding:"0px",
-  color: "white",
-  width: "100px",
-  height:"30px",
-}
+export const atomStyle = {
+  borderRadius: "10px",
+  textAlign: "center",
+  width: "80%",
+  margin: "auto",marginLeft:"10%", marginTop:"5%"
+};
 
-export const switchStyle ={
-  marginBottom :"10px",
-  width:"10%"
-  }
+
+export const switchStyle = {
+  marginBottom: "10px",
+  width: "10%",
+};

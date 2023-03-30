@@ -5,11 +5,12 @@ import { useState, useEffect } from "react";
 import {getAllCars, getCar, search} from "../Redux/Actions/actionCars"
 import { GET_ALL_CARS, SEARCH_CAR } from "../Redux/constante";
 
+import { useNavigate } from "react-router-dom";
 export const useCar = () => {
-
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const listOfCars = useSelector((state) => state.ReducerCars.cars);
-  
+  console.log({listOfCars})
   //get list of cars
   useEffect(() => {
     dispatch (getAllCars());
@@ -25,7 +26,7 @@ export const useCar = () => {
  
   const handleSubmit = (e) => {
      e.preventDefault();
-     dispatch(search(searchInput));
+     dispatch(search(searchInput, navigate));
   };
 
  

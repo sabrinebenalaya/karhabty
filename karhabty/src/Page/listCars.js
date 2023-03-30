@@ -9,6 +9,7 @@ import { Url_get_all_cars, Url_search_cars } from "../Api";
 
 function ListCars() {
   const {listOfCars} = useCar();
+  console.log({listOfCars})
   return (
     <div style={listCarCard}>
       {listOfCars.map((car) => (

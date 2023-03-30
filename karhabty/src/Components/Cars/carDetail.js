@@ -24,7 +24,7 @@ function CarDetail() {
   return (
     <div class="container py-5">
       <div class="row container py-5">
-        <NavBarAccounts />
+      <NavBarAccounts />
         <div class="container" style={detailContainerStyle}>
           <div style={pictureCarStyle}>
             <CustomImage path={Onecar.photo} variant="top" />

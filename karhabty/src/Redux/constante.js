@@ -17,6 +17,10 @@ export const PUT_AGENCY_By_ID = "PUT_AGENCY_By_ID";
 
 export const BrandOptions = [
   {
+    label: "Brand",
+    value: "",
+  },
+  {
     label: "Toyota",
     value: "Toyota",
   },
@@ -95,6 +99,10 @@ export const BrandOptions = [
 ];
 
 export const AdressOptions = [
+  {
+    label: "Adress",
+    value: "",
+  },
   {
     label: "Ariana",
     value: "Ariana",
@@ -194,5 +202,7 @@ export const AdressOptions = [
 ];
 
 export const REGISTER_USER = "REGISTER_USER";
-export const LOGIN_USER = "LOGIN_USER";
-export const LOGOUT_USER = "LOGOUT_USER";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGOUT = "LOGOUT";
+export const LOGIN_FAILURE = "LOGIN_FAILURE";
+

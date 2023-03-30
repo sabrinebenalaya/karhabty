@@ -12,6 +12,7 @@ import ListOrders from "./Page/listOrders";
 import DetailOrder from "./Page/detailOrder";
 import ProfilAgency from "./Page/profilAgency";
 import CarDetail from "./Components/Cars/carDetail";
+import NotFound from './Page/notFound';
 
 function App() {
   const routes = [
@@ -22,6 +23,10 @@ function App() {
         {
           path: "/",
           element: <ListCars />,
+        },
+        {
+          path: "/notFound",
+          element: <NotFound />,
         },
       ],
     },

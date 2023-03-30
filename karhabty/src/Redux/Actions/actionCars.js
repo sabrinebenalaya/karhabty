@@ -16,7 +16,7 @@ export const getAllCars = () => async (dispatch) => {
 };
 
 // search a car
-export const search = (searchInput) => async (dispatch) => {
+export const search = (searchInput, navigate) => async (dispatch) => {
   try {
     const params = {
       params: {
@@ -30,8 +30,16 @@ export const search = (searchInput) => async (dispatch) => {
       data: { searchedCar },
     } = await getCarFromApi(Url_search_cars, params);
     dispatch({ type: SEARCH_CAR, payload: searchedCar });
-  } catch (e) {
-    console.log(e);
+    console.log({searchedCar})
+    if (searchedCar.length === 0) {
+      navigate("/notFound")
+      }
+  } catch (error) {
+    if (error.response && error.response.status === 404) {
+      navigate("/notFound");
+    } else {
+      console.log(error);
+    }
   }
 };
 
