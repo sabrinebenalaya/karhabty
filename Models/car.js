@@ -13,6 +13,10 @@ const carSchema = mongoose.Schema({
     postalCode: { type: String, required: true }
   },
   price: { required: true, type: Number },
+  availableDates:{
+    startDate:{ type: Date, default: Date.now },
+    endDate:{ type: Date, default: Date.now }
+  }
 });
 
 module.exports = mongoose.model("Car", carSchema);

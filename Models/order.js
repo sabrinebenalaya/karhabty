@@ -1,14 +1,18 @@
 const mongoose = require("mongoose");
 const orderSchema = mongoose.Schema({
-  ref: { required: true, type: String },
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
-  car: { type: mongoose.Schema.Types.ObjectId, ref: "Car", required: true },
-  agence: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
-  startDate: { type: Date, required: true },
-  endDate: { type: Date, required: true },
-  totalPrice: { type: Number, required: true },
-  status: { required: true, type: String },
+  announcement: { type: mongoose.Schema.Types.ObjectId, ref: "Announcement", required: true },
+  ref: { required: true, type: String },
+  price: { type: Number, required: true },
+  status: { required: true, type: String, default: "active" },
+  availableDates: {
+    startDate: { type: Date, default: Date.now },
+    endDate: { type: Date, default: Date.now },
+  },
+  date: { type: Date, default: Date.now },
+  paymentMethod: { type: mongoose.Schema.Types.ObjectId, ref: "Payment", required: true }
+
 });
 
 module.exports = mongoose.model("Order", orderSchema);
-const mongoose = require("mongoose");
+

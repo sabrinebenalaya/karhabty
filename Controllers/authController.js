@@ -1,34 +1,31 @@
 const User = require("../Models/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const regitser = async (req, res) => {
+
+const authController = {};
+//Register
+authController.regitserr = async (req, res) => {
   const user = req.body;
+  console.log(user)
   try {
-    const foundUser = await User.findOne({ mail: user.mail });
-    if (foundUser) {
+    const userExist = await User.findOne({ mail: user.mail });
+    if (userExist) {
       res.status(400).json({ msg: "user already exist you sould login" });
-    } else if (!foundUser) {
+    } else  {
+      const user = new User(req.body);
       const hashedPaswword = await bcrypt.hash(user.password, 10);
-      let newUser = new User({
-        firstName: user.firstName,
-        lastName: user.lastName,
-        agencyName: user.agencyName,
-        mail: user.mail,
-        phone: user.phone,
-        password: hashedPaswword,
-        isAgency: user.isAgency,
-      });
-      await newUser.save();
-      const token = jwt.sign({ id: newUser._id }, "shhhhh");
-      res.status(200).json({ user: newUser, token: token });
-    }
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ msg: "Operation of regitser is failed" });
+      user.password =hashedPaswword
+      await user.save();
+      const token = jwt.sign({ id: user._id }, "shhhhh");
+      res.status(200).json({ user: user, token: token });       
+    } 
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 };
 
-const login = async (req, res) => {
+// LogIn
+authController.login = async (req, res) => {
   const userInfo = req.body;
   try {
     const user = await User.findOne({ mail: userInfo.mail });
@@ -49,15 +46,16 @@ const login = async (req, res) => {
     res.status(500).json({ errors: [{ msg: "server failed" }] });
   }
 };
-const logOut = async (req, res) => {
- 
+
+//Log out
+authController.logOut = async (req, res) => {
   try {
-    res.redirect('/'); 
+    res.clearCookie("token"); // Supprime le cookie "token"
+    res.status(200).json({ message: "You are now logged out" });
   } catch (error) {
     res.status(500).json({ errors: [{ msg: "server failed" }] });
   }
 };
-module.exports = {
-  regitser,
-  login,logOut
-};
+
+module.exports = authController;
+
