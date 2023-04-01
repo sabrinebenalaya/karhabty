@@ -4,7 +4,6 @@ const dotenv = require('dotenv');
 const carRoute = require('./route/carRoute')
 const userRoute = require('./route/userRoute')
 const orderRoute = require('./route/orderRoute')
-const agencyRoute = require('./route/agencyRoute')
 const authRoute = require('./route/authRoute')
 
 const connect = require("./ConnectDB/connectDB");
@@ -29,5 +28,4 @@ app.use('/karhabty', authRoute);
 app.use('/karhabtyCar', carRoute);
 app.use('/karhabtyOrder', orderRoute);
 app.use('/karhabtyUser', userRoute);
-app.use('/karhabtyAgency', agencyRoute);
 
