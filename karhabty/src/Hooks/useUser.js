@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { logIn, sinUp } from "../Redux/Actions/actionAuth";
+import { logIn, register } from "../Redux/Actions/actionAuth";
 import { useNavigate } from "react-router-dom";
 export const useUser = () => {
   const dispatch = useDispatch();
@@ -24,8 +24,7 @@ export const useUser = () => {
   };
   const handelRegister =(e)=>{
     e.preventDefault();
-    console.log({newUser})
-    dispatch(sinUp(newUser,navigate))
+    dispatch(register(newUser,navigate))
     
   }
   return { loginUser, setLoginUser, handelSumbit,handelRegister, setNewUser,newUser };

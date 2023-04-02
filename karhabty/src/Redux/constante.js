@@ -1,12 +1,15 @@
 export const GET_ALL_CARS = "GET_ALL_CARS";
 export const GET_CAR_By_ID = "GET_CAR_By_ID";
+
 export const ADD_CAR = "ADD_CAR";
+
 export const UPDATE_CAR = "UPDATE_CAR";
+
 export const DELETE_CAR = "DELETE_CAR";
+
 export const SEARCH_CAR = "SEARCH_CAR";
-export const SEARCH_CAR_BY_BRAND = "SEARCH_CAR_BY_BRAND";
-export const SEARCH_CAR_BY_ADRESS = "SEARCH_CAR_BY_ADRESS";
-export const SEARCH_CAR_BY_PRICE = "SEARCH_CAR_BY_PRICE";
+
+
 
 export const ADD_USER = "ADD_USER";
 export const UPDATE_USER = "UPDATE_USER";
@@ -14,6 +17,11 @@ export const DELETE_USER = "DELETE_USER";
 
 export const GET_AGENCY_By_ID = "GET_AGENCY_By_ID";
 export const PUT_AGENCY_By_ID = "PUT_AGENCY_By_ID";
+
+export const REGISTER = "REGISTER_USER";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGOUT = "LOGOUT";
+export const LOGIN_FAILURE = "LOGIN_FAILURE";
 
 export const BrandOptions = [
   {
@@ -201,8 +209,5 @@ export const AdressOptions = [
   },
 ];
 
-export const REGISTER_USER = "REGISTER_USER";
-export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-export const LOGOUT = "LOGOUT";
-export const LOGIN_FAILURE = "LOGIN_FAILURE";
+
 

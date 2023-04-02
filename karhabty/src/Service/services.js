@@ -1,7 +1,9 @@
 import axios from "axios";
-export const getFromApi = (url) => axios.get(url);
-export const getCarFromApi = (url, param) => axios.get(url, param);
 
-export const putToApi =(url,param)=>axios.put(url, param)
+export const postInApi = (url, params)=> axios.post(url, params);
+export const getAllFromApi = (url) => axios.get(url);
+export const getFromApi = (url, param) => axios.get(url, param);
+export const putInApi = (url, params) =>axios.put(url, params);
+export const deleteFromApi = (url, param) => axios.delete(url, param);
  
 

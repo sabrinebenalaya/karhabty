@@ -11,7 +11,7 @@ export const Url_delete_car_ById =`${envApp}${envCar}/`;
 
 
 const envAuth ="karhabty/"
-export const Url_SingUp =`${envApp}${envAuth}/singup`;
+export const Url_Register =`${envApp}${envAuth}/singup`;
 export const Url_login =`${envApp}${envAuth}/login`;
 export const Url_logOut =`${envApp}${envAuth}/logOut`;
 

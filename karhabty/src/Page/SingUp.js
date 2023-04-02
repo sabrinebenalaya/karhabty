@@ -10,12 +10,11 @@ import { imgSingUp, style1 } from "../Style/loginSingupStyle";
 function SingUp() {
   const { handelRegister, setNewUser, newUser } = useUser();
 
-  const handelCH = (e) => {
-    if (e.target.name === "isAgency" && e.target.value === "on") {
-      setNewUser({ ...newUser, [e.target.name]: true });
-    } else {
-      setNewUser({ ...newUser, [e.target.name]: e.target.value });
-    }
+  const handelChange = (e) => {
+    e.target.name === "isAgency" && e.target.value === "on"
+      ? setNewUser({ ...newUser, [e.target.name]: true })
+      : setNewUser({ ...newUser, [e.target.name]: e.target.value });
+
     handelRegister(newUser);
   };
 
@@ -23,7 +22,6 @@ function SingUp() {
     <div>
       <section class="text-center">
         <div class="p-5 bg-image" style={imgSingUp}></div>
-
         <div class="card mx-4 mx-md-5 shadow-5-strong" style={style1}>
           <div class="card-body py-5 px-md-5">
             <div class="row d-flex justify-content-center">
@@ -38,7 +36,7 @@ function SingUp() {
                           type="text"
                           placeholder="First name"
                           name="firstName"
-                          handleChange={handelCH}
+                          handleChange={handelChange}
                         />
                       </div>
                     </div>
@@ -49,53 +47,63 @@ function SingUp() {
                           type="text"
                           placeholder=" Last name"
                           name="lastName"
-                          handleChange={handelCH}
+                          handleChange={handelChange}
                         />
                       </div>
                     </div>
                   </div>
-                
-                  <div class="form-outline mb-4">
-                  <CustomInput
-                    titelFieald="Agency Name"
-                    type="text"
-                    placeholder="Agency Name"
-                    name="agencyName"
-                    handleChange={handelCH}
-                  />
-                </div>
                   <div class="form-outline mb-4">
                     <CustomInput
-                      titelFieald="Email address"
-                      type="email"
-                      placeholder="Email address"
-                      name="mail"
-                      handleChange={handelCH}
+                      titelFieald="Username"
+                      type="text"
+                      placeholder="UserName"
+                      name="username"
+                      handleChange={handelChange}
                     />
                   </div>
-                  
                   <div class="form-outline mb-4">
                     <CustomInput
-                      titelFieald="Password"
-                      type="password"
-                      placeholder="Password"
-                      name="password"
-                      handleChange={handelCH}
+                      titelFieald="Agency Name"
+                      type="text"
+                      placeholder="Agency Name"
+                      name="agencyName"
+                      handleChange={handelChange}
                     />
-                  </div>
+                  </div>{" "}
+                  <div class="row">
+                    <div class="form-outline col-md-6 mb-4">
+                      <CustomInput
+                        titelFieald="Email address"
+                        type="email"
+                        placeholder="Email address"
+                        name="mail"
+                        handleChange={handelChange}
+                      />
+                    </div>
 
+                    <div class="form-outline col-md-6 mb-4">
+                      <CustomInput
+                        titelFieald="Password"
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        handleChange={handelChange}
+                      />
+                    </div>
+                  </div>
                   <Form.Check
                     type="switch"
                     id="isAgency"
                     label="Agency"
                     style={switchStyle}
                     name="isAgency"
-                    onClick={handelCH}
+                    onClick={handelChange}
                   />
                   <CustomButton
                     type="submit"
                     title="Sign up"
                     handleClick={handelRegister}
+                    variant="contained"
                   />
                 </form>
               </div>

@@ -1,6 +1,6 @@
 import { GET_AGENCY_By_ID, PUT_AGENCY_By_ID } from "../constante";
-import { Url_get_agency_ById, Url_put_agency_ById } from "../../Api";
-import { putToApi, getFromApi } from "../../Service/services";
+import { Url_get_agency_ById,  Url_update_agency_ById  } from "../../Api";
+import { putInApi, getFromApi } from "../../Service/services";
 
 export const getAgency = (id) => async (dispatch) => {
   try {
@@ -18,7 +18,7 @@ export const updateAgency = (attribut,text,id) => async (dispatch) => {
   try {
     const {
       data: { agency },
-    } = await putToApi(`${Url_put_agency_ById}/${id}/${attribut}/${text}`);
+    } = await putInApi(`${ Url_update_agency_ById }/${id}/${attribut}/${text}`);
     dispatch({ type: PUT_AGENCY_By_ID, payload: agency });
 
   } catch (e) {

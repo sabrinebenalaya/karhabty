@@ -1,6 +1,6 @@
 import { GET_ALL_CARS, SEARCH_CAR, GET_CAR_By_ID } from "../constante";
 import { Url_get_all_cars, Url_search_cars, Url_get_car_ById } from "../../Api";
-import {getCarFromApi, getFromApi} from "../../Service/services"
+import { getFromApi} from "../../Service/services"
 
 
 //get all the cars
@@ -26,7 +26,7 @@ export const search = (searchInput, navigate) => async (dispatch) => {
     };
     const {
       data: { searchedCar },
-    } = await getCarFromApi(Url_search_cars, params);
+    } = await getFromApi(Url_search_cars, params);
     dispatch({ type: SEARCH_CAR, payload: searchedCar });
     console.log({searchedCar})
     if (searchedCar.length === 0) {
