@@ -40,6 +40,7 @@ carController.getCarById = async (req, res) => {
   }
 };
 
+// Get all the cars
 carController.getAllCars = async (req, res) => {
   try {
     const cars = await Car.find();

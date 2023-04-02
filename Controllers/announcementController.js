@@ -25,6 +25,19 @@ announcementController.getAllAnnouncements = async (req, res) => {
   }
 };
 
+// Retrieve all active announcements
+announcementController.getAllActiveAnnouncements = async (req, res) => {
+  try {
+    const announcements = await Announcement.findOne({status:"active"});
+    console.log(announcements)
+    announcements
+      ? res.status(200).json(announcements)
+      : res.status(404).json({ message: "Announcements not found" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 // Retrieve a single announcement by ID
 announcementController.getAnnouncementById = async (req, res) => {
   try {
